@@ -1,0 +1,21 @@
+.headerMessage {
+    text-align: center;
+}
+.jumbotron {
+    width: 100%;
+}
+.display-4 {
+    text-align: center;
+    font-weight: 500;
+    font-size: 40px;
+}
+#centerText {
+    display: block;
+    text-align: center;
+    
+}
+
+.doIt {
+    margin-top: 15px;
+    padding-left: 30px;
+}
