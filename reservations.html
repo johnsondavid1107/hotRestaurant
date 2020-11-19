@@ -51,7 +51,10 @@
                     <div class="card-body">
                         <h5 class="card-title" id="tableNum">Table #1</h5>
                         <hr class="my-4">
-                        <p class="card-text renderRes"></p>
+                        <p class="card-text 1renderResName"></p>
+                        <p class="card-text 1renderResPhone"></p>
+                        <p class="card-text 1renderResEmail"></p>
+                        <p class="card-text 1renderResUI"></p>
 
                     </div>
                 </div>
@@ -109,18 +112,25 @@
         $(document).ready(function () {
 
             $.get("/api/table", function (data) {
-                for (var i = 0; i < data.length; i++) {
-                    $(".renderRes").html(`
-Name: ${data[i].name}\n
 
-Email: ${data[i].phoneNumber}\n
+                $(".1renderResName").text(`${data[0].name}`)
+                $(".1renderResPhone").text(`${data[0].phoneNumber}`)
+                $(".1renderResEmail").text(`${data[0].email}`)
+                $(".1renderResUI").text(`${data[0].uniqueID}`)
 
-Phone #: ${data[i].email}
 
-Unique ID: ${data[i].uniqueID} 
-`)
-console.log(data[i]);
-                }
+//                 for (var i = 0; i < data.length; i++) {
+//                     $(".renderRes").text (`
+// Name: ${data[i].name}\n
+
+// Email: ${data[i].phoneNumber}\n
+
+// Phone #: ${data[i].email}
+
+// Unique ID: ${data[i].uniqueID} 
+// `)
+// console.log(data[i]);
+//                 }
             })
 
             $.get("/api/waitlist", function (data) {
