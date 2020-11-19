@@ -25,9 +25,10 @@
 
                 <div class="col-md-11 row justify-content-center">
 
-                    <a class="btn btn-danger btn-lg resButton" href="#" role="button"><i class="far fa-credit-card"></i>
+                    <a class="btn btn-danger btn-lg resButton" href="/add" role="button"><i
+                            class="far fa-credit-card"></i>
                         Make a Reservation</a>
-                    <i class="fas fa-home"></i>
+                    <a class="btn btn-light btn-lg" href="/" role="button"><i class="fas fa-home"></i></a>
 
 
                 </div>
@@ -38,7 +39,7 @@
 
             </div>
 
-            
+
 
         </div>
         <div class="row">
@@ -50,24 +51,26 @@
                     <div class="card-body">
                         <h5 class="card-title">Table #1</h5>
                         <hr class="my-4">
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <p class="card-text renderRes"></p>
+
                     </div>
                 </div>
-            <br>
+                <br>
                 <div class="card">
                     <div class="card-header">
-                       <strong>Waitlisted</strong>
-                      
+                        <strong>Waitlisted</strong>
+
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Table #2</h5>
                         <hr class="my-4">
-                        <p class="card-text"><ul>
-                         <li></li>
-                          
-                        </ul></p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <p class="card-text">
+                        <ul>
+                            <li></li>
+
+                        </ul>
+                        </p>
+
                     </div>
                 </div>
             </div>
@@ -102,9 +105,29 @@
 
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $.get("/api/table", function (data) {
+                console.log(data)
+                console.log(data[0].name);
+
+            })
+
+            $.get("/api/waitlist", function (data) {
+                console.log(data)
+                console.log(data[0].name);
+
+            })
+
+
+
+
+
+
+
+        })
+    </script>
 </body>
 
 </html>
