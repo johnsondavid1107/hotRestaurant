@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '/assets'))
 
 
 const tables = [];
-const onTheBooks = [];
+var onTheBooks = [];
 var waitlist = [];
 
 
@@ -39,22 +39,24 @@ app.get("/reservations", function (req, res) {
 
 app.get("/api/table", function (req, res) {
 
-if(tables.length > 5){
-    console.log("This is true");
-    waitlist = tables.slice(5,tables.length);
-    console.log(waitlist);
-    console.log(tables);
-}
+    if (tables.length <= 5) {
 
+        onTheBooks = tables.slice(0, 5);
+
+    }
 
     // console.log("knocking on the API Table door!")
-    return res.json(tables);
+    return res.json(onTheBooks);
     // console.log(tables)
 });
 
 app.get("/api/waitlist", function (req, res) {
+    if (tables.length > 5) {
 
-   
+        waitlist = tables.slice(5, tables.length);
+
+    }
+
     // console.log("knocking on the API WAITLIST door!")
 
     return res.json(waitlist);
